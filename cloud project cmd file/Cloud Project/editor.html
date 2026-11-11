@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editor · Cloud</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/app.css">
+
+    <script>
+        (function () {
+            try {
+                var mode = localStorage.getItem("Cloud_theme") || "light";
+                var dark = mode === "dark" || (mode === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+                document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme-mode", mode);
+            } catch (e) { /* storage blocked */ }
+        }());
+    </script>
+</head>
+
+<body data-page="editor">
+    <div class="app-layout">
+        <aside id="appSidebar" class="sidebar" aria-label="Main navigation"></aside>
+        <div class="app-body">
+            <header id="appHeader" class="app-header"></header>
+            <main id="mainContent" class="app-content">
+                <div class="content-head">
+                    <div>
+                        <h1 class="page-title" id="pageTitle">Document</h1>
+                    </div>
+                    <div class="head-actions">
+                        <button type="button" class="btn-app-ghost" id="downloadBtn">
+                            <i class="bi bi-download" aria-hidden="true"></i><span>Download</span>
+                        </button>
+                        <button type="button" class="btn-app-primary" id="saveBtn">
+                            <i class="bi bi-floppy-disk" aria-hidden="true"></i><span>Save</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="toolbar" id="editorToolbar" aria-label="Document actions">
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="bold"><b>B</b></button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="italic"><em>I</em></button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="underline"><u>U</u></button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="insertUnorderedList">• List</button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="insertOrderedList">1. List</button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="formatBlock" data-value="h2">Heading</button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="justifyLeft">Left</button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="justifyCenter">Center</button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="justifyRight">Right</button>
+                    <button type="button" class="btn-app-ghost btn-sm-app" data-command="createLink">Link</button>
+                </div>
+
+                <div id="editorStatus" class="text-meta" style="margin:12px 0 8px;">Loading…</div>
+                <div id="editorHost" style="background:var(--surface); border:1px solid var(--border); border-radius:16px; min-height:520px; padding:18px; box-shadow:inset 0 1px 0 rgba(0,0,0,0.02);"></div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/files.js"></script>
+    <script src="assets/js/shell.js"></script>
+    <script src="assets/js/editor.js"></script>
+</body>
+</html>

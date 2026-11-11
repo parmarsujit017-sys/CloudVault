@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="See how much space you are using and what is taking it up.">
+
+    <title>Storage · Cloud</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#9729;</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/app.css">
+
+    <script>
+        /* Paint the saved theme before first render so there is no flash. */
+        (function () {
+            try {
+                var mode = localStorage.getItem("Cloud_theme") || "light";
+                var dark = mode === "dark" ||
+                    (mode === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+                document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+                document.documentElement.setAttribute("data-theme-mode", mode);
+            } catch (e) { /* storage blocked */ }
+        }());
+    </script>
+</head>
+
+<body data-page="storage">
+
+    <a class="visually-hidden-focusable" href="#mainContent">Skip to main content</a>
+
+    <div class="app-layout">
+
+        <aside id="appSidebar" class="sidebar" aria-label="Main navigation"></aside>
+
+        <div class="app-body">
+
+            <header id="appHeader" class="app-header"></header>
+
+            <main id="mainContent" class="app-content">
+                <div class="content-head">
+                    <div>
+                        <h1 class="page-title">Storage</h1>
+                        <p class="subtitle">How much space you are using, and what is taking it up.</p>
+                    </div>
+                    <div class="head-actions">
+                        <a class="btn-app-ghost" href="trash.html">
+                            <i class="bi bi-trash3" aria-hidden="true"></i><span>Review Trash</span>
+                        </a>
+                    </div>
+                </div>
+
+                <section class="panel" aria-labelledby="myPlanHeading">
+                    <div class="panel-head">
+                        <h2 id="myPlanHeading">Your plan</h2>
+                    </div>
+                    <div class="panel-body" id="myPlanHost"></div>
+                </section>
+
+                <section class="panel" aria-label="Storage usage">
+                    <div class="panel-body">
+                        <div class="storage-hero" id="storageHero"></div>
+                    </div>
+                </section>
+
+                <div class="row g-3" style="margin-top:4px">
+                    <div class="col-12 col-lg-6">
+                        <section class="panel h-100" aria-labelledby="breakdownHeading">
+                            <div class="panel-head">
+                                <h2 id="breakdownHeading">Storage breakdown</h2>
+                            </div>
+                            <div class="panel-body" id="breakdownHost"></div>
+                        </section>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <section class="panel h-100" aria-labelledby="largestHeading">
+                            <div class="panel-head">
+                                <h2 id="largestHeading">Largest files</h2>
+                            </div>
+                            <div class="panel-body is-flush" id="largestHost"></div>
+                        </section>
+                    </div>
+                </div>
+
+                <section class="panel" aria-labelledby="catalogueHeading" id="catalogueSection">
+                    <div class="panel-head">
+                        <h2 id="catalogueHeading">Plans</h2>
+                        <span class="text-meta">Contact your administrator to change plan</span>
+                    </div>
+                    <div class="panel-body" id="catalogueHost"></div>
+                </section>
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/menu.js"></script>
+    <script src="assets/js/select.js"></script>
+    <script src="assets/js/upload.js"></script>
+    <script src="assets/js/files.js"></script>
+    <script src="assets/js/sharing.js"></script>
+    <script src="assets/js/shell.js"></script>
+    <script src="assets/js/pages/storage.js"></script>
+
+</body>
+
+</html>

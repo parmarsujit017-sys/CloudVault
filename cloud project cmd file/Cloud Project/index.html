@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cloud</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#9729;</text></svg>">
+
+    <script>
+        /* Entry point: straight to the drive when signed in, otherwise sign in. */
+        (function () {
+            var token = null;
+            try { token = localStorage.getItem("Cloud_token"); } catch (e) { /* blocked */ }
+            location.replace(token ? "dashboard.html" : "login.html");
+        }());
+    </script>
+</head>
+
+<body>
+    <noscript>
+        <p>Cloud needs JavaScript. <a href="login.html">Continue to sign in</a>.</p>
+    </noscript>
+    <p><a href="login.html">Continue to Cloud</a></p>
+</body>
+
+</html>

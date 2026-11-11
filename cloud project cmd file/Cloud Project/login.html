@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Sign in to your Cloud account.">
+
+    <title>Sign in · Cloud</title>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>&#9729;</text></svg>">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/app.css">
+
+    <script>
+        (function () {
+            try {
+                var mode = localStorage.getItem("Cloud_theme") || "light";
+                var dark = mode === "dark" ||
+                    (mode === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+                document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+            } catch (e) { /* storage blocked */ }
+        }());
+    </script>
+</head>
+
+<body data-page="login">
+
+    <div class="auth-page">
+
+        <!-- Brand panel, desktop only -->
+        <aside class="auth-aside">
+
+            <div class="aa-brand">
+                <span class="brand-mark"><i class="bi bi-cloud-fill" aria-hidden="true"></i></span>
+                <span>Cloud</span>
+            </div>
+
+            <div>
+                <h2>Your files, wherever you are.</h2>
+
+                <p class="aa-lead">
+                    Upload, organise into nested folders, and share with a link that
+                    you control — with a password and an expiry date when you need one.
+                </p>
+
+                <ul class="auth-points">
+                    <li><i class="bi bi-folder2-open" aria-hidden="true"></i> Nested folders and fast search</li>
+                    <li><i class="bi bi-shield-lock" aria-hidden="true"></i> Password-protected share links</li>
+                    <li><i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Trash with restore</li>
+                    <li><i class="bi bi-graph-up" aria-hidden="true"></i> Real storage and activity tracking</li>
+                </ul>
+            </div>
+
+            <p class="auth-foot-note">Files are stored on your own server.</p>
+
+        </aside>
+
+        <!-- Form -->
+        <main class="auth-main">
+
+            <div class="auth-card">
+
+                <div class="ac-brand">
+                    <span class="brand-mark"><i class="bi bi-cloud-fill" aria-hidden="true"></i></span>
+                    <span class="brand-name">Cloud</span>
+                </div>
+
+                <h1>Welcome back</h1>
+                <p class="ac-sub">Sign in to reach your files.</p>
+
+                <form id="loginForm" novalidate>
+
+                    <div class="field">
+                        <label for="identifier">Username or email</label>
+                        <input type="text" id="identifier" name="identifier" required autofocus
+                            autocomplete="username" autocapitalize="none" spellcheck="false">
+                        <div class="error-text is-hidden" id="identifierError"></div>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <div class="input-affix">
+                            <input type="password" id="password" name="password" required
+                                autocomplete="current-password">
+                            <button type="button" class="affix-btn" data-toggle-password="password"
+                                aria-label="Show password">
+                                <i class="bi bi-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <div class="error-text is-hidden" id="passwordError"></div>
+                        <a class="auth-inline-link" href="reset.html">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-app-primary btn-block" id="loginSubmit">
+                        Sign in
+                    </button>
+
+                </form>
+
+                <p class="auth-alt">
+                    Don't have an account?
+                    <a href="register.html">Create account</a>
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/api.js"></script>
+    <script src="assets/js/ui.js"></script>
+    <script src="assets/js/pages/auth.js"></script>
+
+</body>
+
+</html>

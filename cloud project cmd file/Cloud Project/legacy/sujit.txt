@@ -1,0 +1,12 @@
+login form
+register form 
+reset password 
+deshbord page
+uploadingpage
+sidbar page
+view page
+profile page
+logout page 
+responsive design
+file manager page select selectall cut copy paste delete share
+

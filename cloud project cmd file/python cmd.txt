@@ -1,0 +1,5 @@
+step :- 1 = python --version
+step :- 2 = python -m venv venv
+step :- 3 = venv\Scripts\activate
+step :- 4 = python -m pip install --upgrade pip
+step :- 5 = python -m uvicorn app.main:app --reload
